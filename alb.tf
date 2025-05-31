@@ -38,12 +38,14 @@ resource "aws_lb" "alb" {
 resource "aws_alb_listener" "web_server_listener" {
 
   load_balancer_arn = aws_lb.alb.arn
-  protocol = "TCP"
-  port = 80
+  port              = "443"
+  protocol          = "HTTPS"
+
+
   default_action {
+    type             = "forward"
     target_group_arn = aws_lb_target_group.web_servers.arn
   }
-}
 
 #==================#
 # ALB Target Group #
