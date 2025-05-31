@@ -23,26 +23,26 @@ output "elb_bucket_out" {
     value = aws_s3_bucket.lb_logs_bucket.id
 }
 
-output "alb_out" {
-for_each = var.availability_zones
+# output "alb_out" {
+# for_each = var.availability_zones
 
-    value = aws_lb.alb.id
-}
+#     value = aws_lb.alb.id
+# }
 
-output "web_server_out" {
-for_each = var.availability_zones
+# output "web_server_out" {
+# for_each = var.availability_zones
 
-    value = aws_instance.web_server[each.key].id
-}
+#     value = aws_instance.web_server[each.key].id
+# }
 
-output "web_server_out" {
-for_each = var.availability_zones
+# output "web_server_out" {
+# for_each = var.availability_zones
 
-    value = aws_instance.web_server[each.key].id
-}
+#     value = aws_instance.web_server[each.key].id
+# }
 
-output "web_server_eni_out" {
-for_each = var.availability_zones
+# output "web_server_eni_out" {
+# for_each = var.availability_zones
 
-    value = aws_network_interface.web_server_eni[each.key].id
-}
+#     value = aws_network_interface.web_server_eni[each.key].id
+# }
