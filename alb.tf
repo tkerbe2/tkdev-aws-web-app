@@ -46,7 +46,7 @@ resource "aws_alb_listener" "web_server_listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.web_servers.arn
   }
-
+}
 #==================#
 # ALB Target Group #
 #==================#
