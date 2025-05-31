@@ -11,7 +11,7 @@
 #=====#
 resource "aws_lb" "alb" {
 
-  name               = "${local.name_prefix}_alb"
+  name               = "${local.name_prefix}-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_servers_sg.id]
@@ -23,7 +23,7 @@ resource "aws_lb" "alb" {
 
   access_logs {
     bucket  = aws_s3_bucket.lb_logs_bucket.id
-    prefix  = "${local.name_prefix}_alb"
+    prefix  = "${local.name_prefix}-alb"
     enabled = true
   }
 

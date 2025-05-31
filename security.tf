@@ -22,7 +22,7 @@ resource "aws_security_group" "web_servers_sg" {
   }
   
   tags = {
-    Name = "${local.name_prefix}_web_server_sg"
+    Name = "${local.name_prefix}-web-server-sg"
   }
 
 }

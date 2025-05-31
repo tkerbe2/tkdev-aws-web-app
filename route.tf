@@ -19,7 +19,7 @@ resource "aws_default_route_table" "default_rt" {
     
 
     tags = {
-    Name = "${local.name_prefix}_main_rt"
+    Name = "${local.name_prefix}-main-rt"
   }
   
 }

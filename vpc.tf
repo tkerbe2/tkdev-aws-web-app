@@ -35,7 +35,7 @@ resource "aws_internet_gateway" "main_igw" {
 depends_on = [aws_vpc.main_vpc]
 
   tags = {
-    Name = "${local.name_prefix}_igw"
+    Name = "${local.name_prefix}-igw"
   }
 }
 
@@ -58,7 +58,7 @@ for_each = var.availability_zones
   availability_zone = each.value
 
   tags = {
-    Name = "${local.name_prefix}_${each.key}_app_sn"
+    Name = "${local.name_prefix}_${each.key}-app-sn"
   }
 }
 
@@ -75,7 +75,7 @@ for_each = var.availability_zones
   availability_zone = each.value
 
   tags = {
-    Name = "${local.name_prefix}_${each.key}_secure_sn"
+    Name = "${local.name_prefix}_${each.key}-secure-sn"
   }
 }
 

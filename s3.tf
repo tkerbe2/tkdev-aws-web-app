@@ -26,10 +26,10 @@ resource "random_string" "random_bucket_name" {
 
 # This creates an S3 bucket with our random string
 resource "aws_s3_bucket" "lb_logs_bucket" {
-  bucket = "${local.name_prefix}_${random_string.random_bucket_name.result}_bucket"
+  bucket = "${local.name_prefix}-${random_string.random_bucket_name.result}-bucket"
 
   tags = {
-    Name        = "${local.name_prefix}_${random_string.random_bucket_name.result}_bucket"
+    Name        = "${local.name_prefix}-${random_string.random_bucket_name.result}-bucket"
     Environment = var.env
   }
 }
