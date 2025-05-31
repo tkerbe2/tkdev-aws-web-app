@@ -10,7 +10,7 @@
 # Default Route Table #
 #=====================#
 resource "aws_default_route_table" "default_rt" {
-    vpc_id = aws_vpc.main_vpc.id
+  default_route_table_id = aws_vpc.main_vpc.id
 
     route {
         cidr_block = "0.0.0.0/0"
@@ -22,5 +22,4 @@ resource "aws_default_route_table" "default_rt" {
     Name = "${local.name_prefix}_main_rt"
   }
   
-  depends_on = [aws_subnet.web_sn]
 }

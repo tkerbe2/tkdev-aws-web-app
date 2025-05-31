@@ -49,20 +49,10 @@ resource "aws_lb_listener" "web_server_listener" {
 resource "aws_lb_target_group" "web_servers" {
   
   name     = "${local.name_prefix}_tg"
-  protocol = "TCP"
-  port     = 80
-  vpc_id   = aws_vpc.main_vpc.id # Replace with your VPC ID
-  
-  health_check {
-    enabled = true
-    path = "/"
-    port = "traffic-port"
-    protocol = "TCP"
-    healthy_threshold_count = 2
-    unhealthy_threshold_count = 2
-    timeout = 5
-    interval = 30
-  }
+  target_type = "alb"
+  port        = 80
+  protocol    = "TCP"
+  vpc_id      = aws_vpc.main_vpc.id
 }
 
 #=============================#

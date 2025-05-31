@@ -72,7 +72,7 @@ for_each = var.availability_zones
   vpc_id            = aws_vpc.main_vpc.id
   cidr_block        = cidrsubnet(var.vpc_cidr, 5, "${var.sn_incrementer + 1}")
   depends_on        = [aws_vpc.main_vpc]
-  availability_zone = each.value
+  availability_zone = [each.value]
 
   tags = {
     Name = "${local.name_prefix}_${each.key}_secure_sn"
