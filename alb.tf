@@ -10,13 +10,14 @@
 # ALB #
 #=====#
 resource "aws_lb" "alb" {
-for_each = var.availability_zones
 
   name               = "${local.name_prefix}_alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_servers_sg.id]
-  subnets            = aws_subnet.app_sn[each.key].id
+  
+  # Here we have to get creative to loop through our subnets without using the for_each meta-argument
+  subnets            = [for k, v in var.availability_zones : aws_subnet.app_sn[k].id]
 
   enable_deletion_protection = true
 
@@ -34,10 +35,9 @@ for_each = var.availability_zones
 #==============#
 # ALB Listener #
 #==============#
-resource "aws_lb_listener" "web_server_listener" {
-for_each = var.availability_zones
-  
-  load_balancer_arn = aws_lb.alb[each.key].arn
+resource "aws_alb_listener" "web_server_listener" {
+
+  load_balancer_arn = aws_lb.alb.arn
   protocol = "TCP"
   port = 80
   default_action {
