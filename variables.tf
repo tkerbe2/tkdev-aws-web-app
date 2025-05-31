@@ -13,10 +13,6 @@ variable "vpc_cidr" {
     type = string
 }
 
-variable "subnet_cidr" {
-    type = map(string)
-}
-
 variable "region" {
     type    = string
     default = "us-east-1"
