@@ -30,8 +30,9 @@ data "aws_ami" "amazon-linux-2" {
 resource "aws_network_interface" "web_server_eni" {
 for_each = var.availability_zones
 
-  subnet_id       = aws_subnet.app_sn[each.key].id
-  security_groups = [aws_security_group.web_servers_sg.name]
+  subnet_id         = aws_subnet.app_sn[each.key].id
+  security_groups   = [aws_security_group.web_servers_sg.name]
+  availability_zone = each.value
 
   attachment {
     instance     = aws_instance.web_server[each.key].id
@@ -50,6 +51,7 @@ for_each = var.availability_zones
     security_groups          = [aws_security_group.web_servers_sg.name]
     subnet_id                = aws_subnet.app_sn[each.key].id
     user_data                = file("bootstrap.sh")
+    availability_zone        = each.value
 
   tags = {
     Name = "${local.name_prefix}_${each.key}_web"
