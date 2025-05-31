@@ -27,7 +27,7 @@ env = "prod"
 server_pair = true
 
 # No default value, fill out
-ssh_key_pair = "my-key"
+ssh_key_pair = "tkdev-ssh-key"
 
 # AZ list cis used for naming and looping mechanism
 availability_zones = ["a", "b"]

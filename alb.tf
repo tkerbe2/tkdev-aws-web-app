@@ -52,7 +52,7 @@ resource "aws_alb_listener" "web_server_listener" {
 #==================#
 resource "aws_lb_target_group" "web_servers" {
   
-  name     = "${local.name_prefix}_tg"
+  name     = "${local.name_prefix}-tg"
   target_type = "alb"
   port        = 80
   protocol    = "TCP"
