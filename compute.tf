@@ -49,7 +49,7 @@ for_each = var.availability_zones
     instance_type            = "t3.micro"
     vpc_security_group_ids   = aws_security_group.web_servers_sg.id
     subnet_id                = aws_subnet.app_sn[each.key].id
-    user_data                = bootstrap.sh
+    user_data                = file("/bootstrap.sh")
 
   tags = {
     Name = "${local.name_prefix}_${each.key}_web"
