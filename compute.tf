@@ -31,7 +31,7 @@ resource "aws_network_interface" "web_server_eni" {
 for_each = var.availability_zones
 
   subnet_id       = aws_subnet.app_sn[each.key].id
-  security_groups = aws_security_group.web_servers_sg.id
+  security_groups = [aws_security_group.web_servers_sg.name]
 
   attachment {
     instance     = aws_instance.web_server[each.key].id
