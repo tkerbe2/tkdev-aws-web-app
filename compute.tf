@@ -28,7 +28,7 @@ data "aws_ami" "amazon-linux-2" {
 # Web Server Elastic Network Interfaces #
 #=======================================#
 resource "aws_network_interface" "web_server_eni" {
-for_each = toset(var.availability_zones)
+for_each = var.availability_zones
 
   subnet_id       = aws_subnet.app_sn[each.key].id
   security_groups = aws_security_group.web_servers_sg.id
@@ -43,7 +43,7 @@ for_each = toset(var.availability_zones)
 # Web Server Instances #
 #======================#
 resource "aws_instance" "web_server" {
-for_each = toset(var.availability_zones)
+for_each = var.availability_zones
 
     ami                      = data.aws_ami.amazon-linux-2.id
     instance_type            = "t3.micro"

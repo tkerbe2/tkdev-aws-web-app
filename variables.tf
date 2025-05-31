@@ -19,7 +19,7 @@ variable "region" {
 }
 
 variable "availability_zones" {
-    type = list(string)
+    type = map(string)
 }
 
 variable "org_name" {
