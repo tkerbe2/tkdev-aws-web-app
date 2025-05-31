@@ -1,0 +1,65 @@
+#                     _    __ 
+#                    | |  / _|
+#  __   ___ __   ___ | |_| |_ 
+#  \ \ / / '_ \ / __|| __|  _|
+#   \ V /| |_) | (__ | |_| |  
+#    \_/ | .__/ \___(_)__|_|  
+#        | |                  
+#        |_|                  
+
+
+#===================#
+# Main VPC Resource #
+#===================#
+
+resource "aws_vpc" "main_vpc" {
+  cidr_block            = var.vpc_cidr
+  enable_dns_support    = "true"
+  enable_dns_hostnames  = "true"
+  instance_tenancy      = "default"
+
+
+  tags = {
+    Name = "${local.name_prefix}_vpc"
+    Environment = var.env
+  }
+}
+
+#==================#
+# Subnet Resources #
+#==================#
+
+
+#============#
+# App Subnet #
+#============#
+
+resource "aws_subnet" "app_sn" {
+for_each = local.availability_zones
+
+  vpc_id            = aws_vpc.main_vpc.id
+  cidr_block        = cidrsubnet(var.vpc_cidr, 5, ${var.sn_incrementer + 1})
+  depends_on        = [aws_vpc.main_vpc]
+  availability_zone = each.key
+
+  tags = {
+    Name = "${local.name_prefix}_${each.key}_app_sn"
+  }
+}
+
+#================#
+# Secure Subnet  #
+#================#
+
+resource "aws_subnet" "secure_sn" {
+for_each = local.availability_zones
+
+  vpc_id            = aws_vpc.main_vpc.id
+  cidr_block        = cidrsubnet(var.vpc_cidr, 5, ${var.sn_incrementer + 1})
+  depends_on        = [aws_vpc.main_vpc]
+  availability_zone = each.key
+
+  tags = {
+    Name = "${local.name_prefix}_${each.key}_secure_sn"
+  }
+}
