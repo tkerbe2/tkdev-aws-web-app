@@ -33,14 +33,14 @@ for_each = local.availability_zones
     value = aws_instance.web_server[each.key].id
 }
 
-output "web_server_out" {
-for_each = local.availability_zones
+# output "web_server_out" {
+# for_each = local.availability_zones
 
-    value = aws_instance.web_server[each.key].id
-}
+#     value = aws_instance.web_server[each.key].id
+# }
 
-output "web_server_eni_out" {
-for_each = local.availability_zones
+# output "web_server_eni_out" {
+# for_each = local.availability_zones
 
-    value = aws_network_interface.web_server_eni[each.key].id
-}
+#     value = aws_network_interface.web_server_eni[each.key].id
+# }
