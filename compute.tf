@@ -32,7 +32,6 @@ for_each = var.availability_zones
 
   subnet_id         = aws_subnet.app_sn[each.key].id
   security_groups   = [aws_security_group.web_servers_sg.name]
-  availability_zone = each.value
 
   attachment {
     instance     = aws_instance.web_server[each.key].id
