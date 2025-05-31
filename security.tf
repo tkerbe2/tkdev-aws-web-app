@@ -30,7 +30,7 @@ resource "aws_security_group" "web_servers_sg" {
 #==============================#
 # Security Group Ingress Rules #
 #==============================#
-
+#These are all the rules necessary to allow our traffic inbound to our web servers
 resource "aws_vpc_security_group_ingress_rule" "allow_http" {
   security_group_id = aws_security_group.web_servers_sg.id
   cidr_ipv4         = "0.0.0.0/0"

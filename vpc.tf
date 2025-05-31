@@ -25,6 +25,21 @@ resource "aws_vpc" "main_vpc" {
   }
 }
 
+#=============================#
+# Internet Gateway Resource   #
+#=============================#
+resource "aws_internet_gateway" "main_igw" {
+
+  vpc_id   = aws_vpc.main_vpc.id
+  
+depends_on = [aws_vpc.main_vpc]
+
+  tags = {
+    Name = "${local.name_prefix}_igw"
+  }
+}
+
+
 #==================#
 # Subnet Resources #
 #==================#
@@ -63,3 +78,4 @@ for_each = local.availability_zones
     Name = "${local.name_prefix}_${each.key}_secure_sn"
   }
 }
+
