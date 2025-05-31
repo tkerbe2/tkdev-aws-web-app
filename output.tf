@@ -27,11 +27,11 @@ output "alb_out" {
     value = aws_lb.alb.id
 }
 
-output "web_server_out" {
-for_each = local.availability_zones
+# output "web_server_out" {
+# for_each = local.availability_zones
 
-    value = aws_instance.web_server[each.key].id
-}
+#     value = aws_instance.web_server[each.key].id
+# }
 
 # output "web_server_out" {
 # for_each = local.availability_zones

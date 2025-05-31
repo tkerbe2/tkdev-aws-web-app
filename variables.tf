@@ -30,7 +30,7 @@ variable "org_name" {
     type = string
 
     validation {
-        condition     = length(var.env) > 4 && length(var.env) < 20
+        condition     = length(var.org_name) > 4 && length(var.env) < 20
         error_message = "Must be between 2 and 20 characters, example: abc-corp"
     }
 }
