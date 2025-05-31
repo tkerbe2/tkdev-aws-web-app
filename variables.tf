@@ -53,3 +53,7 @@ variable "server_pair" {
 variable "ssh_key_pair" {
     type = string
 }
+
+variable "instance_type" {
+    type = string
+}

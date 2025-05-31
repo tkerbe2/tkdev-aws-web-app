@@ -32,6 +32,8 @@ ssh_key_pair = "tkdev-ssh-key"
 # AZ list cis used for naming and looping mechanism
 availability_zones = ["a", "b"]
 
+# VM instance type
+instance_type = "t3-micro"
 #====================#
 # Network Variables  #
 #====================#
