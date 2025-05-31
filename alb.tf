@@ -35,7 +35,9 @@ for_each = var.availability_zones
 # ALB Listener #
 #==============#
 resource "aws_lb_listener" "web_server_listener" {
-  load_balancer_arn = aws_lb.alb.arn
+for_each = var.availability_zones
+  
+  load_balancer_arn = aws_lb.alb[each.key].arn
   protocol = "TCP"
   port = 80
   default_action {
