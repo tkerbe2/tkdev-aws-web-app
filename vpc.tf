@@ -38,7 +38,7 @@ resource "aws_subnet" "app_sn" {
 for_each = local.availability_zones
 
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 5, ${var.sn_incrementer + 1})
+  cidr_block        = cidrsubnet(var.vpc_cidr, 5, "${var.sn_incrementer + 1}")
   depends_on        = [aws_vpc.main_vpc]
   availability_zone = each.key
 
@@ -55,7 +55,7 @@ resource "aws_subnet" "secure_sn" {
 for_each = local.availability_zones
 
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 5, ${var.sn_incrementer + 1})
+  cidr_block        = cidrsubnet(var.vpc_cidr, 5, "${var.sn_incrementer + 1}")
   depends_on        = [aws_vpc.main_vpc]
   availability_zone = each.key
 
