@@ -30,7 +30,7 @@ server_pair = true
 ssh_key_pair = "my-key"
 
 # AZ list cis used for naming and looping mechanism
-az = ["a", "b"]
+availability_zones = ["a", "b"]
 
 #====================#
 # Network Variables  #

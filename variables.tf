@@ -18,8 +18,8 @@ variable "region" {
     default = "us-east-1"
 }
 
-variable "az" {
-    type = list
+variable "availability_zones" {
+    type = list(string)
 }
 
 variable "org_name" {
