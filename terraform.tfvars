@@ -36,7 +36,7 @@ availability_zones = {
 }
 
 # VM instance type
-instance_type = "t3-micro"
+instance_type = "t3.micro"
 #====================#
 # Network Variables  #
 #====================#
