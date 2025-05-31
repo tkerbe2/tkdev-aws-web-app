@@ -10,6 +10,7 @@
 # ALB #
 #=====#
 resource "aws_lb" "alb" {
+for_each = var.availability_zones
 
   name               = "${local.name_prefix}_alb"
   internal           = false
@@ -34,7 +35,7 @@ resource "aws_lb" "alb" {
 # ALB Listener #
 #==============#
 resource "aws_lb_listener" "web_server_listener" {
-  load_balancer_arn = aws_lb.example.arn
+  load_balancer_arn = aws_lb.alb.arn
   protocol = "TCP"
   port = 80
   default_action {
