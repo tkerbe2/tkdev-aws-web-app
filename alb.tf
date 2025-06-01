@@ -21,11 +21,6 @@ resource "aws_lb" "alb" {
 
   enable_deletion_protection = true
 
-  access_logs {
-    bucket  = aws_s3_bucket.lb_logs_bucket.id
-    prefix  = "${local.name_prefix}-alb"
-    enabled = true
-  }
 
   tags = {
     Environment = var.env

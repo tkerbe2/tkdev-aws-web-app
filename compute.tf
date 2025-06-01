@@ -39,6 +39,22 @@ resource "aws_network_interface" "web_server_eni" {
   }
 }
 
+#=======================#
+# Web Server Elastic IP #
+#=======================#
+resource "aws_eip_association" "eip_assoc" {
+  count         = length(var.availability_zones)
+  instance      = aws_instance.web_server[count.index].id
+  allocation_id = aws_eip.web_server_eip[count.index].id
+}
+
+
+resource "aws_eip" "web_server_eip" {
+  count    = length(var.availability_zones)
+  instance = aws_instance.web_server[count.index].id
+  vpc      = true
+}
+
 #======================#
 # Web Server Instances #
 #======================#
@@ -53,7 +69,7 @@ resource "aws_instance" "web_server" {
     availability_zone        = var.availability_zones[count.index]
 
   tags = {
-    Name = "${local.name_prefix}_${count.index}_web"
+    Name = "${local.name_prefix}-${count.index}-web"
   }
 
 }
