@@ -29,6 +29,6 @@ locals {
     }
     region_code = lookup(local.region_map, var.region)
 
-    
+    for k, v in var.availability_zones : 
 
 }

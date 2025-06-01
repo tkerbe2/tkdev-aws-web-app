@@ -49,15 +49,15 @@ depends_on = [aws_vpc.main_vpc]
 #============#
 
 resource "aws_subnet" "app_sn" {
-for_each = var.availability_zones
+for_each = module.subnet_addrs.network_cidr_blocks
 
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = count = 2 (cidrsubnet(var.vpc_cidr, 5, 1 + count.index))
+  cidr_block        = each.key
   depends_on        = [aws_vpc.main_vpc]
-  availability_zone = "${var.region}${each.key}"
+  availability_zone = each.value
 
   tags = {
-    Name = "${local.name_prefix}-${each.key}-app-sn"
+    Name = each.key
   }
 }
 
@@ -65,16 +65,16 @@ for_each = var.availability_zones
 # Secure Subnet  #
 #================#
 
-# resource "aws_subnet" "secure_sn" {
-# for_each = var.availability_zones
+resource "aws_subnet" "secure_sn" {
+for_each = module.subnet_addrs.network_cidr_blocks
 
-#   vpc_id            = aws_vpc.main_vpc.id
-#   cidr_block        = cidrsubnet(var.vpc_cidr, 5, 1 + count.index)
-#   depends_on        = [aws_vpc.main_vpc]
-#   availability_zone = "${var.region}${each.key}"
+  vpc_id            = aws_vpc.main_vpc.id
+  cidr_block        = each.key
+  depends_on        = [aws_vpc.main_vpc]
+  availability_zone = each.value
 
-#   tags = {
-#     Name = "${local.name_prefix}-${each.key}-secure-sn"
-#   }
-# }
+  tags = {
+    Name = each.key
+  }
+}
 

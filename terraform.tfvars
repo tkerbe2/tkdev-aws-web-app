@@ -31,8 +31,28 @@ ssh_key_pair = "tkdev-ssh-key"
 
 # AZ list  used for naming and looping mechanism
 availability_zones = {
-    a = "use1-az1"
-    b = "use1-az2"
+    a = "us-east-1a"
+    b = "us-east-1b"
+}
+
+module "subnet_addrs" {
+for_each = var.availability_zones
+
+  source = "hashicorp/subnets/cidr"
+
+  base_cidr_block = var.vpc_cidr
+  networks = [
+    {
+      name     = "${local.name_prefix}-${each.key}-app-sn"
+      # 5 new bits creates a /28
+      new_bits = 5
+    },
+    {
+      name     = "${local.name_prefix}-${each.key}-secure-sn"
+      # 5 new bits creates a /28
+      new_bits = 5
+    },
+  ]
 }
 
 # VM instance type
