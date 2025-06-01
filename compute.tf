@@ -29,7 +29,7 @@ data "aws_ami" "amazon-linux-2" {
 #=======================================#
 resource "aws_network_interface" "web_server_eni" {
 
-  count             = var.subnet_count
+  count             = length(availability_zones)
   subnet_id         = aws_subnet.app_sn[count.index].id
   security_groups   = [aws_security_group.web_servers_sg.id]
 
@@ -44,7 +44,7 @@ resource "aws_network_interface" "web_server_eni" {
 #======================#
 resource "aws_instance" "web_server" {
 
-    count                    = var.subnet_count
+    count                    = length(availability_zones)
     ami                      = data.aws_ami.amazon-linux-2.id
     instance_type            = var.instance_type
     security_groups          = [aws_security_group.web_servers_sg.id]

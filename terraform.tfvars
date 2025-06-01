@@ -51,7 +51,7 @@ availability_zones = {
 
 # How many subnets to create
 # This should match the availability_zones
-subnet_count = length(availability_zones)
+
 
 # What size of network you want
 # 5 is a /28
