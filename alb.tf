@@ -10,14 +10,15 @@
 # ALB #
 #=====#
 resource "aws_lb" "alb" {
-
+  
   name               = "${local.name_prefix}-alb"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.web_servers_sg.id]
   
   # Here we have to get creative to loop through our subnets without using the for_each meta-argument
-  subnets            = merge([for k, v in var.availability_zones : aws_subnet.app_sn[k].id])
+  count              = var.subnet_count
+  subnets            = [aws_subnet.app_sn[count.index].id]
 
   enable_deletion_protection = true
 

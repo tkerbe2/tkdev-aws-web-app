@@ -28,13 +28,13 @@ data "aws_ami" "amazon-linux-2" {
 # Web Server Elastic Network Interfaces #
 #=======================================#
 resource "aws_network_interface" "web_server_eni" {
-for_each = var.availability_zones
 
-  subnet_id         = aws_subnet.app_sn[each.key].id
+  count             = var.subnet_count
+  subnet_id         = aws_subnet.app_sn[count.index].id
   security_groups   = [aws_security_group.web_servers_sg.name]
 
   attachment {
-    instance     = aws_instance.web_server[each.key].id
+    instance     = aws_instance.web_server[count.index].id
     device_index = 1
   }
 }
@@ -43,17 +43,17 @@ for_each = var.availability_zones
 # Web Server Instances #
 #======================#
 resource "aws_instance" "web_server" {
-for_each = var.availability_zones
 
+    count                    = var.subnet_count
     ami                      = data.aws_ami.amazon-linux-2.id
     instance_type            = var.instance_type
     security_groups          = [aws_security_group.web_servers_sg.name]
-    subnet_id                = aws_subnet.app_sn[each.key].id
+    subnet_id                = aws_subnet.app_sn[count.index].id
     user_data                = file("bootstrap.sh")
-    availability_zone        = each.value
+    availability_zone        = var.availability_zones[count.index % length(var.availability_zones)]
 
   tags = {
-    Name = "${local.name_prefix}_${each.key}_web"
+    Name = "${local.name_prefix}_${count.index}_web"
   }
 
 }

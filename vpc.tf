@@ -44,41 +44,20 @@ depends_on = [aws_vpc.main_vpc]
 # Subnet Resources #
 #==================#
 
-#==========================#
-# Hashicorp subnets module #
-#==========================#
-
-module "subnet_addrs" {
-  source = "hashicorp/subnets/cidr"
-
-
-
-  
-  for_each = var.availability_zones
-    base_cidr_block = var.vpc_cidr
-      networks = [
-        {
-          name     = "${local.name_prefix}-${each.key}-app-sn"
-          # 5 new bits creates a /28
-          new_bits = 5
-        },
-      ]
-    }
-
-#============#
-# App Subnet #
-#============#
+#=========#
+# Subnets #
+#=========#
 
 resource "aws_subnet" "app_sn" {
-for i, n in module.subnet_addrs.networks : {
 
+  count             = var.subnet_count
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = each.key
+  cidr_block        = cidrsubnet(var.main_vpc, var.borrowed_bits, count.index)
   depends_on        = [aws_vpc.main_vpc]
-  availability_zone = each.value
+  availability_zone = var.availability_zones[count.index % length(var.availability_zones)]
 
   tags = {
-    Name = each.key
+    Name = "${local.name_prefix}_${count.index}_web"
   }
-}
+
 }

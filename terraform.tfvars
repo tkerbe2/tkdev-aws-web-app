@@ -29,14 +29,11 @@ server_pair = true
 # No default value, fill out
 ssh_key_pair = "tkdev-ssh-key"
 
-# AZ list  used for naming and looping mechanism
-availability_zones = {
-    a = "us-east-1a"
-    b = "us-east-1b"
-}
-
 # VM instance type
 instance_type = "t3.micro"
+
+
+
 #====================#
 # Network Variables  #
 #====================#
@@ -45,3 +42,17 @@ instance_type = "t3.micro"
 # 192.168.96.1 - 192.168.111.254
 # 15 usable /24 networks
 vpc_cidr = "192.168.96.0/23"
+
+# AZ list  used for naming and looping mechanism
+availability_zones = {
+    a = "us-east-1a"
+    b = "us-east-1b"
+}
+
+# How many subnets to create
+# This should match the availability_zones
+subnet_count = 2
+
+# What size of netwokr you want
+# 5 is a /28
+borrowed_bits = 5
