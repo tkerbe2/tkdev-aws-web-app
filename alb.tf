@@ -63,9 +63,9 @@ resource "aws_lb_target_group" "web_servers" {
 # ALB Target Group Attachment #
 #=============================#
 resource "aws_lb_target_group_attachment" "target_group_attachment" {
-for_each = var.availability_zones
+count = var.subnet_count
 
   target_group_arn = aws_lb_target_group.web_servers.arn
-  target_id        = aws_instance.web_server[each.key].id
+  target_id        = aws_instance.web_server[count.index].id
   port             = 80
 }
