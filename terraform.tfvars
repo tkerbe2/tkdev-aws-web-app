@@ -51,8 +51,8 @@ availability_zones = {
 
 # How many subnets to create
 # This should match the availability_zones
-subnet_count = 2
+subnet_count = length(availability_zones)
 
-# What size of netwokr you want
+# What size of network you want
 # 5 is a /28
 borrowed_bits = 5

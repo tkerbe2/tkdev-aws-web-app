@@ -31,7 +31,7 @@ resource "aws_network_interface" "web_server_eni" {
 
   count             = var.subnet_count
   subnet_id         = aws_subnet.app_sn[count.index].id
-  security_groups   = [aws_security_group.web_servers_sg.name]
+  security_groups   = [aws_security_group.web_servers_sg.id]
 
   attachment {
     instance     = aws_instance.web_server[count.index].id
