@@ -27,10 +27,10 @@ output "alb_out" {
     value = aws_lb.alb.id
 }
 
-output "web_server_out" {
-    value = [for k, v in var.availability_zones : aws_instance.web_server[k].id]
-}
+# output "web_server_out" {
+#     value = [for k, v in var.availability_zones : aws_instance.web_server[k].id]
+# }
 
-output "web_server_eni_out" {
-    value = [for k, v in var.availability_zones : aws_network_interface.web_server_eni[k].id]
-}
+# output "web_server_eni_out" {
+#     value = [for k, v in var.availability_zones : aws_network_interface.web_server_eni[k].id]
+# }

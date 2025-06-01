@@ -57,7 +57,7 @@ resource "aws_subnet" "app_sn" {
   availability_zone = var.availability_zones[count.index % length(var.availability_zones)]
 
   tags = {
-    Name = "${local.name_prefix}_${count.index}_web"
+    Name = "${local.name_prefix}-${count.index}-web"
   }
 
 }
