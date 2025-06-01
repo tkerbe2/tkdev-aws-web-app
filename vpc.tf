@@ -52,7 +52,7 @@ resource "aws_subnet" "app_sn" {
 
   count             = var.subnet_count
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, var.borrowed_bits, count.index)
+  cidr_block        = cidrsubnet(var.vpc_cidr, var.borrowed_bits, count.index + 1)
   depends_on        = [aws_vpc.main_vpc]
   availability_zone = var.availability_zones[count.index % length(var.availability_zones)]
 
