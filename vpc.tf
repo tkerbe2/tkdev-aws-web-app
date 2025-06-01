@@ -69,8 +69,8 @@ module "subnet_addrs" {
 # App Subnet #
 #============#
 
-resource "aws_subnet" "app_sn" {
-for_each = module.subnet_addrs.networks
+resource "aws_subnet" "sn" {
+for_each = module.subnet_addrs.cidr_block
 
   vpc_id            = aws_vpc.main_vpc.id
   cidr_block        = each.key
