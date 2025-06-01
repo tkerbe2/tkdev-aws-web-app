@@ -43,6 +43,25 @@ depends_on = [aws_vpc.main_vpc]
 # Subnet Resources #
 #==================#
 
+module "subnet_addrs" {
+for_each = var.availability_zones
+
+  source = "hashicorp/subnets/cidr"
+
+  base_cidr_block = var.vpc_cidr
+  networks = [
+    {
+      name     = "${local.name_prefix}-${each.key}-app-sn"
+      # 5 new bits creates a /28
+      new_bits = 5
+    },
+    {
+      name     = "${local.name_prefix}-${each.key}-secure-sn"
+      # 5 new bits creates a /28
+      new_bits = 5
+    },
+  ]
+}
 
 #============#
 # App Subnet #
