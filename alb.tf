@@ -59,7 +59,7 @@ resource "aws_lb_target_group" "web_servers_tg" {
 resource "aws_lb_target_group_attachment" "target_group_attachment" {
 count = length(var.availability_zones)
 
-  target_group_arn = aws_lb_target_group.web_servers.arn
+  target_group_arn = aws_lb_target_group.web_servers_tg.arn
   target_id        = aws_instance.web_server[count.index].id
   port             = 80
 }
