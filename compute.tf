@@ -48,7 +48,7 @@ for_each = var.availability_zones
     ami                      = data.aws_ami.amazon-linux-2.id
     instance_type            = var.instance_type
     security_groups          = [aws_security_group.web_servers_sg.name]
-    subnet_id                = aws_subnet.app_sn[each.key].id
+    subnet_id                = aws_subnet."${local.name_prefix}-${each.key}-app-sn".id
     user_data                = file("bootstrap.sh")
     availability_zone        = each.value
 
