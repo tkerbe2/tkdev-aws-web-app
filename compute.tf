@@ -47,7 +47,7 @@ resource "aws_instance" "web_server" {
     count                    = var.subnet_count
     ami                      = data.aws_ami.amazon-linux-2.id
     instance_type            = var.instance_type
-    security_groups          = [aws_security_group.web_servers_sg.name]
+    security_groups          = [aws_security_group.web_servers_sg.id]
     subnet_id                = aws_subnet.app_sn[count.index].id
     user_data                = file("bootstrap.sh")
     availability_zone        = var.availability_zones[count.index]
