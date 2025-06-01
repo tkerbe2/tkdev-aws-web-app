@@ -44,9 +44,11 @@ depends_on = [aws_vpc.main_vpc]
 #==================#
 
 module "subnet_addrs" {
-for_each = var.availability_zones
-
   source = "hashicorp/subnets/cidr"
+
+  for_each = var.availability_zones
+
+  
 
   base_cidr_block = var.vpc_cidr
   networks = [
