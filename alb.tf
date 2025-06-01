@@ -66,6 +66,6 @@ resource "aws_lb_target_group_attachment" "target_group_attachment" {
 count = var.subnet_count
 
   target_group_arn = aws_lb_target_group.web_servers.arn
-  target_id        = aws_instance.web_server[count.index].id
+  target_id        = aws_instance.web_server[count.index + 1].id
   port             = 80
 }

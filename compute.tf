@@ -30,7 +30,7 @@ data "aws_ami" "amazon-linux-2" {
 resource "aws_network_interface" "web_server_eni" {
 
   count             = var.subnet_count
-  subnet_id         = aws_subnet.app_sn[count.index].id
+  subnet_id         = aws_subnet.app_sn[count.index + 1].id
   security_groups   = [aws_security_group.web_servers_sg.name]
 
   attachment {
@@ -50,10 +50,10 @@ resource "aws_instance" "web_server" {
     security_groups          = [aws_security_group.web_servers_sg.name]
     subnet_id                = aws_subnet.app_sn[count.index].id
     user_data                = file("bootstrap.sh")
-    availability_zone        = count.index
+    availability_zone        = count.index + 1
 
   tags = {
-    Name = "${local.name_prefix}_${count.index}_web"
+    Name = "${local.name_prefix}_${count.index + 1}_web"
   }
 
 }
