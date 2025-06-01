@@ -46,31 +46,31 @@ depends_on = [aws_vpc.main_vpc]
 module "subnet_addrs" {
   source = "hashicorp/subnets/cidr"
 
-  for_each = var.availability_zones
+
 
   
-
-  base_cidr_block = var.vpc_cidr
-  networks = [
-    {
-      name     = "${local.name_prefix}-${each.key}-app-sn"
-      # 5 new bits creates a /28
-      new_bits = 5
-    },
-    {
-      name     = "${local.name_prefix}-${each.key}-secure-sn"
-      # 5 new bits creates a /28
-      new_bits = 5
-    },
-  ]
-}
+  for_each = var.availability_zones
+    base_cidr_block = var.vpc_cidr
+      networks = [
+        {
+          name     = "${local.name_prefix}-${each.key}-app-sn"
+          # 5 new bits creates a /28
+          new_bits = 5
+        },
+        {
+          name     = "${local.name_prefix}-${each.key}-secure-sn"
+          # 5 new bits creates a /28
+          new_bits = 5
+        },
+      ]
+    }
 
 #============#
 # App Subnet #
 #============#
 
 resource "aws_subnet" "app_sn" {
-for_each = module.subnet_addrs
+for_each = module.subnet_addrs.networks
 
   vpc_id            = aws_vpc.main_vpc.id
   cidr_block        = each.key
@@ -82,20 +82,20 @@ for_each = module.subnet_addrs
   }
 }
 
-#================#
-# Secure Subnet  #
-#================#
+# #================#
+# # Secure Subnet  #
+# #================#
 
-resource "aws_subnet" "secure_sn" {
-for_each = module.subnet_addrs
+# resource "aws_subnet" "secure_sn" {
+# for_each = module.subnet_addrs.networks
 
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = each.key
-  depends_on        = [aws_vpc.main_vpc]
-  availability_zone = each.value
+#   vpc_id            = aws_vpc.main_vpc.id
+#   cidr_block        = each.key
+#   depends_on        = [aws_vpc.main_vpc]
+#   availability_zone = each.value
 
-  tags = {
-    Name = each.key
-  }
-}
+#   tags = {
+#     Name = each.key
+#   }
+# }
 
