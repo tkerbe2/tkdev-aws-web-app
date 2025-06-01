@@ -19,7 +19,6 @@ resource "aws_lb" "alb" {
   # Here we have to get creative to loop through our subnets without using the for_each meta-argument
   subnets            = [for subnet in aws_subnet.app_sn : subnet.id]
 
-  enable_deletion_protection = true
 
 
   tags = {
