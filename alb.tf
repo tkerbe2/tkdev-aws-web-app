@@ -49,7 +49,7 @@ resource "aws_lb_target_group" "web_servers_tg" {
   name     = "${local.name_prefix}-tg"
   target_type = "alb"
   port        = 80
-  protocol    = "HTTP"
+  protocol    = "TCP"
   vpc_id      = aws_vpc.main_vpc.id
 }
 
