@@ -50,11 +50,12 @@ depends_on = [aws_vpc.main_vpc]
 
 resource "aws_subnet" "app_sn" {
 
-  count             = length(var.availability_zones)
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, var.borrowed_bits, count.index)
-  depends_on        = [aws_vpc.main_vpc]
-  availability_zone = var.availability_zones[count.index]
+  count                   = length(var.availability_zones)
+  vpc_id                  = aws_vpc.main_vpc.id
+  cidr_block              = cidrsubnet(var.vpc_cidr, var.borrowed_bits, count.index)
+  depends_on              = [aws_vpc.main_vpc]
+  availability_zone       = var.availability_zones[count.index]
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "${local.name_prefix}-${count.index}-web"

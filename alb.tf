@@ -33,8 +33,8 @@ resource "aws_lb" "alb" {
 resource "aws_alb_listener" "web_server_listener" {
 
   load_balancer_arn = aws_lb.alb.arn
-  port              = "443"
-  protocol          = "HTTPS"
+  port              = "80"
+  protocol          = "HTTP"
 
 
   default_action {
