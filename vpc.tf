@@ -8,6 +8,27 @@
 #        |_|                  
 
 
+
+
+module "subnet_addrs" {
+for_each = var.availability_zones 
+  
+  source = "hashicorp/subnets/cidr"
+
+  base_cidr_block = var.vpc_cidr
+  
+  networks = [
+    {
+      name     = "${local.name_prefix}-${each.key}-app-cidr"
+      new_bits = 5
+    },
+    {
+      name     = "${local.name_prefix}-${each.key}-secure-cidr"
+      new_bits = 5
+    },
+  ]
+}
+
 #===================#
 # Main VPC Resource #
 #===================#
@@ -53,12 +74,12 @@ resource "aws_subnet" "app_sn" {
 for_each = var.availability_zones
 
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 5, "${var.sn_incrementer + 1}")
+  cidr_block        = cidrsubnet(var.vpc_cidr, 5, count.index)
   depends_on        = [aws_vpc.main_vpc]
   availability_zone = "${var.region}${each.key}"
 
   tags = {
-    Name = "${local.name_prefix}_${each.key}-app-sn"
+    Name = "${local.name_prefix}-${each.key}-app-sn"
   }
 }
 
@@ -75,7 +96,7 @@ for_each = var.availability_zones
   availability_zone = "${var.region}${each.key}"
 
   tags = {
-    Name = "${local.name_prefix}_${each.key}-secure-sn"
+    Name = "${local.name_prefix}-${each.key}-secure-sn"
   }
 }
 

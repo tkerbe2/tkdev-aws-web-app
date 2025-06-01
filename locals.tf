@@ -29,10 +29,6 @@ locals {
     }
     region_code = lookup(local.region_map, var.region)
 
-#=========================#
-# Availability Zones Used #
-#=========================#
-    # availability_zones = ["a", "b"]
 
 
 }

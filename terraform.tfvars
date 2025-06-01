@@ -29,7 +29,7 @@ server_pair = true
 # No default value, fill out
 ssh_key_pair = "tkdev-ssh-key"
 
-# AZ list used for naming and looping mechanism
+# AZ list  used for naming and looping mechanism
 availability_zones = {
     a = "use1-az1"
     b = "use1-az2"
