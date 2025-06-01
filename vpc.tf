@@ -74,7 +74,7 @@ resource "aws_subnet" "app_sn" {
 for_each = var.availability_zones
 
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = module.subnet_addrs.network_cidr_blocks.networks.name["${local.name_prefix}-${each.key}-app-cidr"].cidr_block
+  cidr_block        = module.subnet_addrs.networks.name["${local.name_prefix}-${each.key}-app-cidr"].cidr_block
   depends_on        = [aws_vpc.main_vpc]
   availability_zone = "${var.region}${each.key}"
 
