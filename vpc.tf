@@ -54,7 +54,7 @@ resource "aws_subnet" "app_sn" {
   vpc_id            = aws_vpc.main_vpc.id
   cidr_block        = cidrsubnet(var.vpc_cidr, var.borrowed_bits, count.index)
   depends_on        = [aws_vpc.main_vpc]
-  availability_zone = var.availability_zones[count.index].value
+  availability_zone = [var.availability_zones[count.index].value]
 
   tags = {
     Name = "${local.name_prefix}-${count.index}-web"
