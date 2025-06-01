@@ -27,6 +27,7 @@ resource "aws_vpc" "main_vpc" {
 #=============================#
 # Internet Gateway Resource   #
 #=============================#
+
 resource "aws_internet_gateway" "main_igw" {
 
   vpc_id   = aws_vpc.main_vpc.id
@@ -43,6 +44,10 @@ depends_on = [aws_vpc.main_vpc]
 # Subnet Resources #
 #==================#
 
+#==========================#
+# Hashicorp subnets module #
+#==========================#
+
 module "subnet_addrs" {
   source = "hashicorp/subnets/cidr"
 
@@ -57,11 +62,6 @@ module "subnet_addrs" {
           # 5 new bits creates a /28
           new_bits = 5
         },
-        {
-          name     = "${local.name_prefix}-${each.key}-secure-sn"
-          # 5 new bits creates a /28
-          new_bits = 5
-        },
       ]
     }
 
@@ -69,7 +69,7 @@ module "subnet_addrs" {
 # App Subnet #
 #============#
 
-resource "aws_subnet" "sn" {
+resource "aws_subnet" "app_sn" {
 for_each = module.subnet_addrs.cidr_block
 
   vpc_id            = aws_vpc.main_vpc.id
@@ -81,21 +81,3 @@ for_each = module.subnet_addrs.cidr_block
     Name = each.key
   }
 }
-
-# #================#
-# # Secure Subnet  #
-# #================#
-
-# resource "aws_subnet" "secure_sn" {
-# for_each = module.subnet_addrs.networks
-
-#   vpc_id            = aws_vpc.main_vpc.id
-#   cidr_block        = each.key
-#   depends_on        = [aws_vpc.main_vpc]
-#   availability_zone = each.value
-
-#   tags = {
-#     Name = each.key
-#   }
-# }
-
