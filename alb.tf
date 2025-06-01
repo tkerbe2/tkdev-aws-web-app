@@ -17,7 +17,7 @@ resource "aws_lb" "alb" {
   security_groups    = [aws_security_group.web_servers_sg.id]
   
   # Here we have to get creative to loop through our subnets without using the for_each meta-argument
-  subnets            = [for k, v in var.availability_zones : aws_subnet."${local.name_prefix}-${each.key}-app-sn".id]
+  subnets            = [for k, v in var.availability_zones : aws_subnet.aws_subnet.aws_subnet.("${local.name_prefix}-${each.key}-app-sn").id
 
   enable_deletion_protection = true
 
