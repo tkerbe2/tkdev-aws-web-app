@@ -49,10 +49,10 @@ depends_on = [aws_vpc.main_vpc]
 #============#
 
 resource "aws_subnet" "app_sn" {
-count = length(availability_zone)
+for_each = var.availability_zones
 
   vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 5, 1 + count.index)
+  cidr_block        = count = 2 (cidrsubnet(var.vpc_cidr, 5, 1 + count.index))
   depends_on        = [aws_vpc.main_vpc]
   availability_zone = "${var.region}${each.key}"
 
@@ -65,16 +65,16 @@ count = length(availability_zone)
 # Secure Subnet  #
 #================#
 
-resource "aws_subnet" "secure_sn" {
-count = length(availability_zone)
+# resource "aws_subnet" "secure_sn" {
+# for_each = var.availability_zones
 
-  vpc_id            = aws_vpc.main_vpc.id
-  cidr_block        = cidrsubnet(var.vpc_cidr, 5, 1 + count.index)
-  depends_on        = [aws_vpc.main_vpc]
-  availability_zone = "${var.region}${each.key}"
+#   vpc_id            = aws_vpc.main_vpc.id
+#   cidr_block        = cidrsubnet(var.vpc_cidr, 5, 1 + count.index)
+#   depends_on        = [aws_vpc.main_vpc]
+#   availability_zone = "${var.region}${each.key}"
 
-  tags = {
-    Name = "${local.name_prefix}-${each.key}-secure-sn"
-  }
-}
+#   tags = {
+#     Name = "${local.name_prefix}-${each.key}-secure-sn"
+#   }
+# }
 
