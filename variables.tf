@@ -58,10 +58,6 @@ variable "instance_type" {
     type = string
 }
 
-variable "subnet_count" {
-    type = number
-}
-
 variable "borrowed_bits" {
     type = number
 }
