@@ -45,8 +45,8 @@ vpc_cidr = "192.168.96.0/23"
 
 # AZ list  used for naming and looping mechanism
 availability_zones = {
-    a = "us-east-1a"
-    b = "us-east-1b"
+    1 = "us-east-1a"
+    2 = "us-east-1b"
 }
 
 # How many subnets to create

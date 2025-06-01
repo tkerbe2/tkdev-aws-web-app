@@ -50,7 +50,7 @@ resource "aws_instance" "web_server" {
     security_groups          = [aws_security_group.web_servers_sg.name]
     subnet_id                = aws_subnet.app_sn[count.index].id
     user_data                = file("bootstrap.sh")
-    availability_zone        = count.index + 1
+    availability_zone        = var.availability_zones[count.index].value
 
   tags = {
     Name = "${local.name_prefix}_${count.index}_web"
