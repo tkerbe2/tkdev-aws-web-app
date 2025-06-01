@@ -34,7 +34,7 @@ resource "aws_network_interface" "web_server_eni" {
   security_groups   = [aws_security_group.web_servers_sg.name]
 
   attachment {
-    instance     = aws_instance.web_server[count.index].id
+    instance     = aws_instance.web_server[count.index + 1].id
     device_index = 1
   }
 }
@@ -48,7 +48,7 @@ resource "aws_instance" "web_server" {
     ami                      = data.aws_ami.amazon-linux-2.id
     instance_type            = var.instance_type
     security_groups          = [aws_security_group.web_servers_sg.name]
-    subnet_id                = aws_subnet.app_sn[count.index].id
+    subnet_id                = aws_subnet.app_sn[count.index + 1].id
     user_data                = file("bootstrap.sh")
     availability_zone        = count.index + 1
 
