@@ -48,6 +48,12 @@ depends_on = [aws_vpc.main_vpc]
 # Subnets #
 #=========#
 
+resource "aws_route_table_association" "rt_a" {
+  count          = length(var.availability_zones)
+  subnet_id      = aws_subnet.app_sn[count.index].id
+  route_table_id = aws_default_route_table.default_rt.id
+}
+
 resource "aws_subnet" "app_sn" {
 
   count                   = length(var.availability_zones)
