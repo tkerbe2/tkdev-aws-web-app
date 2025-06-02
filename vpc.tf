@@ -19,7 +19,7 @@ resource "aws_vpc" "main_vpc" {
 
 
   tags = {
-    Name = "${local.name_prefix}_vpc"
+    Name = "${local.name_prefix}-vpc"
     Environment = var.env
   }
 }

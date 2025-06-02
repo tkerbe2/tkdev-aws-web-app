@@ -24,14 +24,12 @@ env = "prod"
 # If you want a pair of servers or not
 # Naming convention is pri (primary) or sec (secondary)
 # Default value is true
-server_pair = true
 
 # No default value, fill out
 ssh_key_pair = "tkdev-ssh-key"
 
 # VM instance type
 instance_type = "t3.micro"
-
 
 
 #====================#

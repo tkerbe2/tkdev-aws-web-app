@@ -40,16 +40,6 @@ variable "env" {
     }
 }
 
-variable "sn_incrementer" {
-    type    = number
-    default = 0
-}
-
-variable "server_pair" {
-    type    = bool
-    default = true
-}
-
 variable "ssh_key_pair" {
     type = string
 }
