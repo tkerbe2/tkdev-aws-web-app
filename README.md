@@ -20,23 +20,9 @@ This demo creates the following resources.
 - S3 bucket with some randomly generated characters (optionally can use this for logging on the ALB) 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 
-## References
+## References:
 
 | Reference      | Description   | 
 | ---------------|---------------|
@@ -44,3 +30,15 @@ This demo creates the following resources.
 | [lookup Function](https://developer.hashicorp.com/terraform/language/functions/lookup) | Official Hashicorp Documentation for the lookup function
 | [cidrsubnet Function](https://developer.hashicorp.com/terraform/language/functions/cidrsubnet) | Official Hashicorp Documentation for the cidrsubnet function
 | [random_string](https://registry.terraform.io/providers/hashicorp/random/3.0.0/docs/resources/string) | Official Terraform Registry for random provider
+
+## Disclaimer
+---
+#### Content Usage and Liability
+
+As the author and creator of the content, I authorize the usage, distribution, and modification of my content for individuals (non-commercial entities), non-profit learning institutions (colleges, universities, vocational schools) and any other non-profit organizations that fall under the tax exempt organization status.
+
+#### IRS Exempt Organization Types
+
+My content is NOT to be used, distributed, or modified, for profit or commercial usage without my explicit permission.
+
+As the author of this content I recognize that some of the labs and information I share requires more advanced technical knowledge. I take no responsibility for any damages caused by my content (either physical, monetary, or any other damages) and/or shared information. It is assumed that the individual performing these actions is doing so in accordance with their local laws, organizational policies, and self-understanding of personal risk.
