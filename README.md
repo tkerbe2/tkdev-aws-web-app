@@ -32,7 +32,7 @@ This demo creates the following resources.
 
 <br>
 
-| ### Reference      | ### Description   | 
+| Reference      | Description   | 
 | ---------------|---------------|
 | [for_each Meta Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)| Official Hashicorp Documentation for the for_each Meta-Argument
 | [lookup Function](https://developer.hashicorp.com/terraform/language/functions/lookup) | Official Hashicorp Documentation for the lookup function
