@@ -6,6 +6,14 @@ I recommend using Terraform Enterprise Cloud to deploy this as it is what I've u
 ## Resources Created:
 This demo creates the following resources.
 
+- VPC
+- Subnets based on what is defined in terraform.tfvars
+- IGW
+- Default route table that points 0.0.0.0/0 to the IGW
+- Security Group that allows 80 and 22 TCP inbound from anywhere (lock this down for further security)
+- EIPs based on how many zones you've defined (default is 2)
+- EC2 Amazon Linux instances based on how many zones you've defined (default is 2)
+- S3 bucket with some randomly generated characters (optionally can use this for logging on the ALB) 
 
 
 
