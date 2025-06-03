@@ -1,3 +1,5 @@
+![tkdev_main](https://github.com/user-attachments/assets/3ae576dd-4233-4aef-bd06-c8117f2e20ef)
+
 # tkdev Terraform Web App Lab
 
 I've created this lab to tinker with some different ways to create resources with Terraform in AWS and improve my own Terraform skills. This lab is a simple example of many of the cool things you can create with some simple looping and other functions.
