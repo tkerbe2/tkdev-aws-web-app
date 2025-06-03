@@ -8,7 +8,7 @@ This demo creates the following resources.
 
 - VPC
 - Subnets based on what is defined in terraform.tfvars
-- IGW
+- IGW attached to the VPC
 - Default route table that points 0.0.0.0/0 to the IGW
 - Security Group that allows 80 and 22 TCP inbound from anywhere (lock this down for further security)
 - EIPs based on how many zones you've defined (default is 2)
