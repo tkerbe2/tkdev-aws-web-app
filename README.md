@@ -12,7 +12,7 @@ This demo creates the following resources.
 - Default route table that points 0.0.0.0/0 to the IGW
 - Security Group that allows 80 and 22 TCP inbound from anywhere (lock this down for further security)
 - EIPs based on how many zones you've defined (default is 2)
-- EC2 Amazon Linux instances based on how many zones you've defined (default is 2)
+- EC2 Instance(s) with Amazon Linux based on how many zones you've defined (default is 2)
 - S3 bucket with some randomly generated characters (optionally can use this for logging on the ALB) 
 
 
@@ -30,7 +30,9 @@ This demo creates the following resources.
 
 
 
-
+<br>
 | Referemce      | Description   | 
 | ---------------|---------------|
 | [for_each Meta Argument](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)| Official Hashicorp Documentation for the for_each Meta-Argument
+| [lookup Function](https://developer.hashicorp.com/terraform/language/functions/lookup) | Official Hashicorp Documentation for the lookup function
+| [cidrsubnet Function](https://developer.hashicorp.com/terraform/language/functions/cidrsubnet) | Official Hashicorp Documentation for the cidrsubnet function
