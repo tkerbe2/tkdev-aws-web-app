@@ -31,6 +31,8 @@ This demo creates the following resources.
 | [cidrsubnet Function](https://developer.hashicorp.com/terraform/language/functions/cidrsubnet) | Official Hashicorp Documentation for the cidrsubnet function
 | [random_string](https://registry.terraform.io/providers/hashicorp/random/3.0.0/docs/resources/string) | Official Terraform Registry for random provider
 
+<br>
+
 ## Disclaimer
 ---
 #### Content Usage and Liability
