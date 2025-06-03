@@ -41,4 +41,4 @@ As the author and creator of the content, I authorize the usage, distribution, a
 
 My content is NOT to be used, distributed, or modified, for profit or commercial usage without my explicit permission.
 
-As the author of this content I recognize that some of the labs and information I share requires more advanced technical knowledge. I take no responsibility for any damages caused by my content (either physical, monetary, or any other damages) and/or shared information. It is assumed that the individual performing these actions is doing so in accordance with their local laws, organizational policies, and self-understanding of personal risk.
+As the author of this content I recognize that some of the labs and information I share require more advanced technical knowledge. I take no responsibility for any damages caused by my content (either physical, monetary, or any other damages) and/or shared information. It is assumed that the individual performing these actions is doing so in accordance with their local laws, organizational policies, and self-understanding of personal risk.
