@@ -7,6 +7,24 @@ I've created this lab to tinker with some different ways to create resources wit
 
 I recommend using Terraform Enterprise Cloud to deploy this as it is what I've used to deploy this. GitHub Actions is also a great alternative if you can set the AWS_SERCET_KEY and AWS_ACCESS_KEY in the Secrets.
 
+## How to Use:
+
+In the terraform.tfvars file you will want to configure the following variables.
+
+| Variable Name | Value and Constraints |
+| ---------------|------------------------------|
+| region | this should be a valid AWS region |
+| org_name | This can be a fake company or just your name for example | 
+| env | This is short for environment think: prod, dev, stage, test, etc.. | 
+| ssh_key_pair | This is for the EC2 instances to launch, you need to create this yourself first |
+| instance_type | By default I try to keep everything free-tier so t3.micro is default | 
+| vpc_cidr | This can be any RFC1918, I recommend at least a /23 CIDR to start with |
+| availability_zones | This is important as this map is what the looping mechanism is used for. Use valid availability zones and keep the key values as they are |
+| borrowed_bits | This is what size of subnets you want, by default I've set it to 5 to create /28 CIDRs | 
+
+
+
+
 ## Resources Created:
 This demo creates the following resources.
 
