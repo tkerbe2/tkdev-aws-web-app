@@ -9,7 +9,7 @@ I recommend using Terraform Enterprise Cloud to deploy this as it is what I've u
 
 ## How to Use:
 
-In the terraform.tfvars file you will want to configure the following variables.
+In the terraform.tfvars file you will want to configure the following variables:
 
 | Variable Name | Value and Constraints |
 | ---------------|------------------------------|
