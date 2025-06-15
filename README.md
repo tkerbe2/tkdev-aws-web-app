@@ -1,10 +1,13 @@
 
 ![tkdev_secondary](https://github.com/user-attachments/assets/45692378-8f3e-4df0-adb4-74b4d047a0d8)
 
-# Terraform Web App Lab
+# Web App Lab
 
-I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. This lab is also an example of creating a highly-available web application behind a load balancer.  
-I recommend using Terraform Enterprise Cloud to deploy this as it's what is is refern. GitHub Actions is also a great alternative if you can set the AWS_SERCET_KEY and AWS_ACCESS_KEY in the Secrets.
+I created this lab as an example for my Hennepin Tech students (or any student interested). The first part of this lab is to create a functioning highly available web application in the AWS Console. The second component of this lab is then deploying these same resources with code. The focus and intent of this lab is to both familiarize with AWS Console (VPC, EC2, IAM) and also recognize the advantages of using IaC.  
+
+Manual Creation - Web App Lab
+
+I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. I recommend using Terraform Enterprise Cloud to deploy this as it's one of the easier ways to deploy code, manage state files, and store secrets. 
 
 ## How to Use:
 
@@ -21,9 +24,57 @@ In the terraform.tfvars file you will want to configure the following variables:
 | availability_zones | Important! This map is what the looping mechanism is used for. Use valid availability zones and keep the key values as they are (0, 1, 2, etc..) |
 | borrowed_bits | This is what size of subnets you want, by default I've set it to 5 to create /28 CIDRs | 
 
+Below is another example of the terraform.tfvars file.
+
 ```
-# example of correct AWS region usage
-region = "us-east-1"
+#========================#
+# Declare Variables Here #
+#========================#
+
+# Enter the AWS region to deploy to
+# Defaults to us-west-1
+region = "us-west-1"
+
+# Between 2 and 20 characters
+org_name = "tkdev"
+
+# Environment between 3 and 10 characters
+# Could be prod, dev, non-prod
+env = "sandbox"
+
+# If you want a pair of servers or not
+# Naming convention is pri (primary) or sec (secondary)
+# Default value is true
+
+# No default value, fill out
+ssh_key_pair = "tkdev-ssh-key"
+
+# VM instance type
+instance_type = "t3.micro"
+
+#====================#
+# Network Variables  #
+#====================#
+
+# /23 supports up to 512 usable IPs
+# 192.168.10.1 - 192.168.11.254
+vpc_cidr = "192.168.10.0/23"
+
+# AZ list used for naming and looping mechanism
+# us-west-1 doesn't have a b
+availability_zones = {
+    0 = "us-west-1a"
+    1 = "us-west-1c"
+}
+
+# How many subnets to create
+# This should match the availability_zones
+
+
+# What size of network you want
+# 5 is a /28
+borrowed_bits = 5
+
 ```
 
 
