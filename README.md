@@ -3,9 +3,8 @@
 
 # Terraform Web App Lab
 
-I've created this lab to tinker with some different ways to create resources with Terraform in AWS and improve my own Terraform skills. This lab is a simple example of many of the cool things you can create with some simple looping and other functions.
-
-I recommend using Terraform Enterprise Cloud to deploy this as it is what I've used to deploy this. GitHub Actions is also a great alternative if you can set the AWS_SERCET_KEY and AWS_ACCESS_KEY in the Secrets.
+I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. This lab is also an example of creating a highly-available web application behind a load balancer.  
+I recommend using Terraform Enterprise Cloud to deploy this as it's what is is refern. GitHub Actions is also a great alternative if you can set the AWS_SERCET_KEY and AWS_ACCESS_KEY in the Secrets.
 
 ## How to Use:
 
@@ -14,6 +13,10 @@ In the terraform.tfvars file you will want to configure the following variables:
 | Variable Name | Value and Constraints |
 | ---------------|------------------------------|
 | region | Should be a valid AWS region |
+```json
+# example of correct AWS region usage
+region = "us-east-1"
+```
 | org_name | Can be a fake company or just your name for example | 
 | env | This is short for environment think: prod, dev, stage, test, etc.. | 
 | ssh_key_pair | Required for EC2 instances to launch, you need to create this yourself first |
@@ -26,16 +29,16 @@ In the terraform.tfvars file you will want to configure the following variables:
 
 
 ## Resources Created:
-This demo creates the following resources.
+This demo creates the following resources in the following order:
 
-- VPC
-- Subnets based on what is defined in terraform.tfvars
-- IGW attached to the VPC
-- Default route table that points 0.0.0.0/0 to the IGW
-- Security Group that allows 80 and 22 TCP inbound from anywhere (lock this down for further security)
-- EIPs based on how many zones you've defined (default is 2)
-- EC2 Instance(s) with Amazon Linux based on how many zones you've defined (default is 2)
-- S3 bucket with some randomly generated characters (optionally can use this for logging on the ALB) 
+1. VPC
+2. Subnets based on what is defined in terraform.tfvars
+3. IGW attached to the VPC
+4. Default route table that points 0.0.0.0/0 to the IGW
+5. Security Group that allows 80 and 22 TCP inbound from anywhere (lock this down for further security)
+6. EIPs based on how many zones you've defined (default is 2)
+7. EC2 Instance(s) with Amazon Linux based on how many zones you've defined (default is 2)
+8. S3 bucket with some randomly generated characters (optionally can use this for logging on the ALB) 
 
 
 <br>
