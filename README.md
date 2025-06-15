@@ -3,9 +3,11 @@
 
 # Web App Lab
 
-I created this lab as an example for my Hennepin Tech students (or any student interested). The first part of this lab is to create a functioning highly available web application in the AWS Console. The second component of this lab is then deploying these same resources with code. The focus and intent of this lab is to both familiarize with AWS Console (VPC[^1], EC2[^2], IAM[^3]) and also recognize the advantages of using IaC.  
+I created this lab as an example for my Hennepin Tech students (or any student interested). The first part of this lab is to create a functioning highly available web application in the AWS Console. The second component of this lab is then deploying these same resources with code. The focus and intent of this lab is to both familiarize with AWS Console (VPC[^1], EC2[^2], S3[^3]) and also recognize the advantages of using IaC.  
 
-[^1]: In this lap we specifically build many components with [VPC Reference](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
+[^1]: In this lab we specifically build many components with the VPC service: [VPC Reference](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html)
+[^2]: In this lab we we create an ALB and EC2 instances with the EC2 service: [EC2 Reference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
+[^3]: In this lab we create an S3 bucket with the S3 service: [S3 Reference](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 
 ### (Part 1) Manual Creation - Web App Lab
 
