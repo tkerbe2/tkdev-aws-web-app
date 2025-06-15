@@ -5,9 +5,12 @@
 
 I created this lab as an example for my Hennepin Tech students (or any student interested). The first part of this lab is to create a functioning highly available web application in the AWS Console. The second component of this lab is then deploying these same resources with code. The focus and intent of this lab is to both familiarize with AWS Console (VPC, EC2, IAM) and also recognize the advantages of using IaC.  
 
-Manual Creation - Web App Lab
+### Manual Creation - Web App Lab
 
 I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. I recommend using Terraform Enterprise Cloud to deploy this as it's one of the easier ways to deploy code, manage state files, and store secrets. 
+
+![aws-web-app-lab](https://github.com/user-attachments/assets/f7cf8534-6de9-4748-bc52-3e3efc02daa6)
+[Download URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
 ## How to Use:
 
