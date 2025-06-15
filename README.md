@@ -13,7 +13,7 @@ In the terraform.tfvars file you will want to configure the following variables:
 | Variable Name | Value and Constraints |
 | ---------------|------------------------------|
 | region | Should be a valid AWS region |
-```json
+```
 # example of correct AWS region usage
 region = "us-east-1"
 ```
