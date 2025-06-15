@@ -9,11 +9,16 @@ I created this lab as an example for my Hennepin Tech students (or any student i
 [^2]: In this lab we we create an ALB and EC2 instances with the EC2 service: [EC2 Reference](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 [^3]: In this lab we create an S3 bucket with the S3 service: [S3 Reference](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 
+<br>
+
 ### (Part 1) Manual Creation - Web App Lab
 
 I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. I recommend using Terraform Enterprise Cloud to deploy this as it's one of the easier ways to deploy code, manage state files, and store secrets. 
 
 ![aws-web-app-lab](https://github.com/user-attachments/assets/f7cf8534-6de9-4748-bc52-3e3efc02daa6)
+
+<br>
+
 [Download URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
 ## How to Use:
