@@ -13,10 +13,6 @@ In the terraform.tfvars file you will want to configure the following variables:
 | Variable Name | Value and Constraints |
 | ---------------|------------------------------|
 | region | Should be a valid AWS region |
-```
-# example of correct AWS region usage
-region = "us-east-1"
-```
 | org_name | Can be a fake company or just your name for example | 
 | env | This is short for environment think: prod, dev, stage, test, etc.. | 
 | ssh_key_pair | Required for EC2 instances to launch, you need to create this yourself first |
@@ -25,7 +21,10 @@ region = "us-east-1"
 | availability_zones | Important! This map is what the looping mechanism is used for. Use valid availability zones and keep the key values as they are (0, 1, 2, etc..) |
 | borrowed_bits | This is what size of subnets you want, by default I've set it to 5 to create /28 CIDRs | 
 
-
+```
+# example of correct AWS region usage
+region = "us-east-1"
+```
 
 
 ## Resources Created:
