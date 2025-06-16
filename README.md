@@ -23,7 +23,7 @@ I've created this lab to tinker with unique ways to create resources with Terraf
 <br>
 <br>
 
-## (Part 2) ⚙️ Automated Creation (IaC) - Web App Lab :
+## (Part 2) ⚙️ Automated Creation (IaC) - Web App Lab:
 
 In the terraform.tfvars file you will want to configure the following variables:
 
