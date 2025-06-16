@@ -11,13 +11,11 @@ I created this lab as an example for my Hennepin Tech students (or any student i
 
 <br>
 
-### (Part 1) Manual Creation - Web App Lab
+## (Part 1) Manual Creation - Web App Lab 🪛
 
 I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. I recommend using Terraform Enterprise Cloud to deploy this as it's one of the easier ways to deploy code, manage state files, and store secrets. 
 
 ![aws-web-app-lab](https://github.com/user-attachments/assets/f7cf8534-6de9-4748-bc52-3e3efc02daa6)
-
-<br>
 
 [Download URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
@@ -88,8 +86,6 @@ availability_zones = {
 borrowed_bits = 5
 
 ```
-
-
 ## Resources Created:
 This demo creates the following resources in the following order:
 
@@ -120,10 +116,10 @@ This demo creates the following resources in the following order:
 ---
 #### Content Usage and Liability
 
-As the author and creator of the content, I authorize the usage, distribution, and modification of my content for individuals (non-commercial entities), non-profit learning institutions (colleges, universities, vocational schools) and any other non-profit organizations that fall under the tax exempt organization status.
+*As the author and creator of the content, I authorize the usage, distribution, and modification of my content for individuals (non-commercial entities), non-profit learning institutions (colleges, universities, vocational schools) and any other non-profit organizations that fall under the tax exempt organization status.*
 
 #### IRS Exempt Organization Types
 
-My content is NOT to be used, distributed, or modified, for profit or commercial usage without my explicit permission.
+*My content is NOT to be used, distributed, or modified, for profit or commercial usage without my explicit permission.*
 
-As the author of this content I recognize that some of the labs and information I share require more advanced technical knowledge. I take no responsibility for any damages caused by my content (either physical, monetary, or any other damages) and/or shared information. It is assumed that the individual performing these actions is doing so in accordance with their local laws, organizational policies, and self-understanding of personal risk.
+*As the author of this content I recognize that some of the labs and information I share require more advanced technical knowledge. I take no responsibility for any damages caused by my content (either physical, monetary, or any other damages) and/or shared information. It is assumed that the individual performing these actions is doing so in accordance with their local laws, organizational policies, and self-understanding of personal risk.*
