@@ -11,7 +11,7 @@ I created this lab as an example for my Hennepin Tech students (or any student i
 
 <br>
 
-## (Part 1) Manual Creation - Web App Lab 🪛
+## (Part 1) 🪛 Manual Creation - Web App Lab
 
 I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. I recommend using Terraform Enterprise Cloud to deploy this as it's one of the easier ways to deploy code, manage state files, and store secrets. 
 
@@ -19,7 +19,11 @@ I've created this lab to tinker with unique ways to create resources with Terraf
 
 [Download URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
-## How to Use:
+
+
+
+
+## (Part 2) 🤖 Automated Creation (IaC) - Web App Lab :
 
 In the terraform.tfvars file you will want to configure the following variables:
 
