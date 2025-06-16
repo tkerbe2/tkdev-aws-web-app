@@ -20,8 +20,8 @@ I've created this lab to tinker with unique ways to create resources with Terraf
 [Download URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
 
-
-
+<br>
+<br>
 
 ## (Part 2) 🤖 Automated Creation (IaC) - Web App Lab :
 
