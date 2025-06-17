@@ -25,6 +25,11 @@ I've created this lab to tinker with unique ways to create resources with Terraf
 
 ## (Part 2) ⚙️ Automated Creation (IaC) - Web App Lab
 
+In this part of the lab you will deploy the exact same infrastructure, but with code. 
+
+![terraform-web-app-lab](https://github.com/user-attachments/assets/9a207bcf-1161-4a60-995c-b2b85d2fa615)
+[Coming Soon]()
+
 In the terraform.tfvars file you will want to configure the following variables:
 
 | Variable Name | Value and Constraints |
