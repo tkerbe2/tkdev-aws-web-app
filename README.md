@@ -13,7 +13,7 @@ I created this lab as an example for my Hennepin Tech students. The first part o
 
 ## (Part 1) 🪛 Manual Creation - Web App Lab
 
-I've created this lab to tinker with unique ways to create resources with Terraform, in AWS. I recommend using Terraform Enterprise Cloud to deploy this as it's one of the easier ways to deploy code, manage state files, and store secrets. 
+In this first part of the lab you will use the AWS Console to create all lab resources manually. You will gain hands on experience and learn how to use services like VPC, EC2, and S3. To open and download the full lab guide scroll to the link below.
 
 ![aws-web-app-lab](https://github.com/user-attachments/assets/f7cf8534-6de9-4748-bc52-3e3efc02daa6)
 
@@ -25,7 +25,7 @@ I've created this lab to tinker with unique ways to create resources with Terraf
 
 ## (Part 2) ⚙️ Automated Creation (IaC) - Web App Lab
 
-In this part of the lab you will deploy the exact same infrastructure, but with code. If you already know how to deploy Terraform or have used Terraform Enterprise Cloud and just want to know how to use the code, scroll down for more details. 
+In this part of the lab you will deploy the exact same infrastructure as you did in part 1, but with code. If you already know how to deploy Terraform or have used Terraform Enterprise Cloud and just want to know how to use the code, scroll down for more details. 
 
 ![terraform-web-app-lab](https://github.com/user-attachments/assets/9a207bcf-1161-4a60-995c-b2b85d2fa615)
 [Coming Soon]()
