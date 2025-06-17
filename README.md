@@ -32,6 +32,11 @@ In this part of the lab you will deploy the exact same infrastructure as you did
 
 [Coming Soon]()
 
+<br>
+<br>
+
+### Terraform Variables:
+
 In the terraform.tfvars file you will want to configure the following variables:
 
 | Variable Name | Value and Constraints |
@@ -97,7 +102,7 @@ availability_zones = {
 borrowed_bits = 5
 
 ```
-## Resources Created:
+### Resources Created:
 This demo creates the following resources in the following order:
 
 1. VPC
@@ -112,7 +117,7 @@ This demo creates the following resources in the following order:
 
 <br>
 
-## References:
+### References:
 
 | Reference      | Description   | 
 | ---------------|---------------|
@@ -123,7 +128,7 @@ This demo creates the following resources in the following order:
 
 <br>
 
-## Disclaimer
+### Disclaimer
 ---
 #### Content Usage and Liability
 
