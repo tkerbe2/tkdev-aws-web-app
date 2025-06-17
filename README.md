@@ -17,7 +17,7 @@ In this first part of the lab you will use the AWS Console to create all lab res
 
 ![aws-web-app-lab](https://github.com/user-attachments/assets/f7cf8534-6de9-4748-bc52-3e3efc02daa6)
 
-[Creating a Highly Available Wegb App with AWS - URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
+[Creating a Highly Available Web App with AWS - URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
 
 <br>
