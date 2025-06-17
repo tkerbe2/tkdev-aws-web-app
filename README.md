@@ -27,7 +27,8 @@ In this first part of the lab you will use the AWS Console to create all lab res
 
 In this part of the lab you will deploy the exact same infrastructure as you did in part 1, but with code. If you already know how to deploy Terraform or have used Terraform Enterprise Cloud and just want to know how to use the code, scroll down for more details. 
 
-![terraform-web-app-lab](https://github.com/user-attachments/assets/f11f2c74-713b-4ff4-95d2-503e6021105c)
+![terraform-web-app-lab](https://github.com/user-attachments/assets/a5234bc9-8c7e-4260-a0d6-74e30d684ba1)
+
 
 [Coming Soon]()
 
