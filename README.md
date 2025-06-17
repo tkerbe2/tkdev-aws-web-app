@@ -25,7 +25,7 @@ I've created this lab to tinker with unique ways to create resources with Terraf
 
 ## (Part 2) ⚙️ Automated Creation (IaC) - Web App Lab
 
-In this part of the lab you will deploy the exact same infrastructure, but with code. 
+In this part of the lab you will deploy the exact same infrastructure, but with code. If you already know how to deploy Terraform or have used Terraform Enterprise Cloud and just want to know how to use the code, scroll down for more details. 
 
 ![terraform-web-app-lab](https://github.com/user-attachments/assets/9a207bcf-1161-4a60-995c-b2b85d2fa615)
 [Coming Soon]()
