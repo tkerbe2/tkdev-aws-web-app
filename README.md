@@ -1,5 +1,6 @@
 
-![tkdev_secondary](https://github.com/user-attachments/assets/45692378-8f3e-4df0-adb4-74b4d047a0d8)
+![tkdev_space_200](https://github.com/user-attachments/assets/e33b726d-65c2-4bb7-864c-f64ba6c9745d)
+
 
 # Web App Lab
 
@@ -19,17 +20,6 @@ In this first part of the lab you will use the AWS Console to create all lab res
 
 [Creating a Highly Available Web App with AWS - URL](https://tkdev-content.s3.us-east-1.amazonaws.com/Cloud/tkdev-webapp-w-lb-lab.pdf)
 
-
-<br>
-<br>
-
-## (Part 2) ⚙️ Automated Creation (IaC) - Web App Lab
-
-In this part of the lab you will deploy the exact same infrastructure as you did in part 1, but with code. If you already know how to deploy Terraform or have used Terraform Enterprise Cloud and just want to know how to use the code, scroll down for more details. 
-
-![terraform-web-app-lab](https://github.com/user-attachments/assets/57a9f549-413d-4050-aed9-2e9837677061)
-
-[Coming Soon]()
 
 <br>
 <br>
